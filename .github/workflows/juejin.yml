@@ -20,4 +20,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run nodejs to checkIn JueJin
+        env:
+          JUEJIN_COOKIE: ${{secrets.JUEJIN_COOKIE}}
         run: node src/juejin/index.js
