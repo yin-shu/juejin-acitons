@@ -22,4 +22,4 @@ jobs:
       - name: Run nodejs to checkIn JueJin
         runs:
           using: 'node12'
-          main: src/juejin/index.js
+          main: 'src/juejin/index.js'
