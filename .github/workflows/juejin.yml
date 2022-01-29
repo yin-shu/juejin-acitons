@@ -20,6 +20,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run nodejs to checkIn JueJin
-        runs:
-          using: 'node12'
-          main: 'src/juejin/index.js'
+        run: node src/juejin/index.js
