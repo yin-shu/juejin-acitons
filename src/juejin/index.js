@@ -1,4 +1,5 @@
 import {checkIn, getStatus, getCounts, getCurPoint, draw, dipLucky} from './service.js';
+import wxPush from '../utils/wxPush.js'
 
 async function getInfo() {
   const {code, data, msg} = await getCurPoint();
@@ -19,23 +20,27 @@ async function main() {
   if (code !== 0) {
     console.error(code, msg)
   }
+  let message
   // 未签到
   if (!data) {
       // 签到
       console.log('开始签到')
       const {code, data, msg} = await checkIn();
       console.log(code, data, msg)
-      const message = await getInfo();
+      message = await getInfo();
       if (code !== 0) {
         message.unshift(`签到失败，原因：${msg}`)
+      } else {
+        message.unshift(`签到成功, 获得矿石：${data.incr_point}`)
       }
-      message.unshift(`签到成功, 获得矿石：${incr_point}`)
 
       // 抽奖
-      console.log('开始签到')
+      console.log('开始抽奖')
       const res = await draw();
       if (res.code === 0) {
         message.splice(1, 0, `抽奖成功，获得：${res.data.lottery_name}`)
+      } else {
+        message.splice(1, 0, `抽奖失败，原因：${res.msg}`)
       }
       console.log(res)
 
@@ -44,16 +49,21 @@ async function main() {
       const res2 = await dipLucky();
       if (res2.code === 0) {
         message.splice(2, 0, `沾喜气成功，获得：${res2.data.dip_value}, 总值：${res2.data.total_value}`)
+      } else {
+        message.splice(2, 0, `沾喜气失败，原因：${res2.msg}`)
       }
       console.log(res2)
 
       console.log(message);
   } else {
-      const message = await getInfo();
+      message = await getInfo();
       message.unshift('您今日已完成签到，请勿重复签到！');
       console.log(message);
   }
-
+  // console.log(await draw())
+  const res = await wxPush(message[0], message.join('\n\n'))
+  console.log(res)
 }
 
 main()
+

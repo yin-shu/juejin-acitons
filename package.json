@@ -16,5 +16,7 @@
   "bugs": {
     "url": "https://github.com/yin-shu/juejin-acitons/issues"
   },
-  "homepage": "https://github.com/yin-shu/juejin-acitons#readme"
+  "homepage": "https://github.com/yin-shu/juejin-acitons#readme",
+  "dependencies": {
+  }
 }

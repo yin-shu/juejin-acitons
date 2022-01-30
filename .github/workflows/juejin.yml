@@ -22,4 +22,5 @@ jobs:
       - name: Run nodejs to checkIn JueJin
         env:
           JUEJIN_COOKIE: ${{secrets.JUEJIN_COOKIE}}
+          FANG_TANG_SEND_KEY: ${{secrets.FANG_TANG_SEND_KEY}}
         run: node src/juejin/index.js
