@@ -21,7 +21,7 @@ async function main() {
     console.error(code, msg)
   }
   let message
-  let errorMessge = []
+  let errorMessage = []
   // 未签到
   if (!data) {
       // 签到
@@ -31,7 +31,7 @@ async function main() {
       message = await getInfo();
       if (code !== 0) {
         message.unshift(`签到失败，原因：${msg}`)
-        errorMessge.unshift(`签到失败，原因：${msg}`)
+        errorMessage.unshift(`签到失败，原因：${msg}`)
       } else {
         message.unshift(`签到成功, 获得矿石：${data.incr_point}`)
       }
@@ -42,7 +42,7 @@ async function main() {
       if (res.code === 0) {
         message.splice(1, 0, `抽奖成功，获得：${res.data.lottery_name}`)
       } else {
-        errorMessge.push(`抽奖失败，原因：${res.msg}`)
+        errorMessage.push(`抽奖失败，原因：${res.msg}`)
         message.splice(1, 0, `抽奖失败，原因：${res.msg}`)
       }
       console.log(res)
