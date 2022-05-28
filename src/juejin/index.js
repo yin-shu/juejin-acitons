@@ -69,9 +69,9 @@ async function main() {
   // const res = await wxPush(message[0], message.join('\n\n'))
   if (errorMessage.length > 0) {
     const res = await wxPush('掘金脚本失败', errorMessage.join('\n\n'))
+    console.log(res)
   }
   
-  console.log(res)
 }
 
 main()
