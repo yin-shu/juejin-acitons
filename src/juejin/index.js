@@ -9,7 +9,7 @@ async function getInfo() {
       message.push(`当前矿石数: ${data}`);
   }
   if (code === 0) {
-      message.push(`连续签到天数: ${data2.cont_count}`);
+      message.push(`连续签到天数1: ${data2.cont_count}`);
       message.push(`累计签到天数: ${data2.sum_count}\n`);
   }
   return message;
