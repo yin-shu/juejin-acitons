@@ -5,7 +5,7 @@ import request from './request.js'
  */
 export const getStatus = async function() {
   return await request({
-    url: 'get_today_status'
+    url: 'v2/get_today_status'
   })
 }
 
@@ -14,7 +14,7 @@ export const getStatus = async function() {
  */
 export const draw = async function() {
   return await request({
-    url: 'lottery/draw',
+    url: 'v1/lottery/draw',
     method: 'post'
   })
 }
@@ -24,7 +24,7 @@ export const draw = async function() {
  */
  export const checkIn = async function() {
   return await request({
-    url: 'check_in',
+    url: 'v1/check_in',
     method: 'post'
   })
 }
@@ -34,7 +34,7 @@ export const draw = async function() {
  */
  export const getCounts = async function() {
   return await request({
-    url: 'get_counts'
+    url: 'v1/get_counts'
   })
 }
 
@@ -43,7 +43,7 @@ export const draw = async function() {
  */
  export const getCurPoint = async function() {
   return await request({
-    url: 'get_cur_point'
+    url: 'v1/get_cur_point'
   })
 }
 
@@ -55,7 +55,7 @@ export const draw = async function() {
     lottery_history_id: '7057551468475187203'
   })
   return await request({
-    url: 'lottery_lucky/dip_lucky?aid=2608&uuid=6947852186353616415',
+    url: 'v1/lottery_lucky/dip_lucky?aid=2608&uuid=6947852186353616415',
     method: 'post',
     data: data
   })
