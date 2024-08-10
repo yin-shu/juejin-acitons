@@ -24,12 +24,12 @@ const request = async (options, headers) => {
       res.on('end', () => {
         console.log(_options)
         console.log(data)
-        try {
+        //try {
           const info = JSON.parse(data)
           resolve(info)
-        } catch(e) {
-          resolve({})
-        }
+        //} catch(e) {
+        //  resolve({})
+        //}
       })
     })
 
