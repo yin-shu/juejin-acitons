@@ -15,16 +15,21 @@ const request = async (options, headers) => {
   }
   return new Promise((resolve, reject) => {
     const req = https.request(_options, (res) => {
-      // console.log(res.statusCode)
+      console.log(res.statusCode)
       res.setEncoding('utf8')
       let data = ''
       res.on('data', d => {
         data += d
       })
       res.on('end', () => {
+        console.log(_options)
         console.log(data)
-        const info = JSON.parse(data)
-        resolve(info)
+        try {
+          const info = JSON.parse(data)
+          resolve(info)
+        } catch(e) {
+          resolve({})
+        }
       })
     })
 
