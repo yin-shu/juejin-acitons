@@ -24,7 +24,7 @@ export const draw = async function() {
  */
  export const checkIn = async function() {
   return await request({
-    url: 'v1/check_in',
+    url: 'v2/check_in',
     method: 'post'
   })
 }
