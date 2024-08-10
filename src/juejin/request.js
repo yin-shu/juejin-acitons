@@ -20,7 +20,7 @@ const headers = {
 const request = async (options) => {
   const _options = {
     hostname: 'api.juejin.cn',
-    path: '/growth_api/v2/' + options.url,
+    path: '/growth_api/' + options.url,
     method: options.method,
     data: options.data
   }
