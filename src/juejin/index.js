@@ -23,7 +23,7 @@ async function main() {
   let message
   let errorMessage = []
   // 未签到
-  if (!data) {
+  if (!data.check_in_done) {
       // 签到
       console.log('开始签到')
       const {code, data, msg} = await checkIn();
