@@ -24,7 +24,7 @@ export const draw = async function() {
  */
  export const checkIn = async function() {
   return await request({
-    url: 'v1/check_in',
+    url: 'v1/check_in?aid=2608&uuid=6947852186353616415&spider=0&msToken=aYix8Ph-QKGR5ciBqpmvc9KLsJPMWXo-G78bJQswA9fGJyS8Wmz5-758XU8GDHWQjJMDWcik-W64TM-rVczWHyyz29iJkh0iQ1duidghKu9pq7PRZFJAR58G5sgsnHuy&a_bogus=xJsQ6OZIMsm1OhfbShDz9nYE41W0YW-PgZEPi8wxLtLo',
     method: 'post'
   })
 }
